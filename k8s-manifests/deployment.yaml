@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubus-app-deployment
+  labels:
+    app: kubus-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubus-app
+  template:
+    metadata:
+      labels:
+        app: kubus-app
+    spec:
+      containers:
+      - name: kubus-app-container
+        image: 672420933428.dkr.ecr.us-east-1.amazonaws.com/kubus-app:1.0
+        ports:
+        - containerPort: 80
